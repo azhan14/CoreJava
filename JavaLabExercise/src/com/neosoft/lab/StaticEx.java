@@ -1,5 +1,6 @@
 package com.neosoft.lab;
 
+
 public class StaticEx {
 	static int a;
 	static int b;
