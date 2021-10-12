@@ -4,10 +4,10 @@ package com.neosoft.lab;
 public class AbstractEx {
 
 	public static void main(String[] args) {
-		Bank b;
-		b = new SC();
+		Bank1 b;
+		b = new SC1();
 		System.out.println("ROI of SC: "+b.ROI());
-		b = new HDFC();
+		b = new HDFC1();
 		System.out.println("ROI of HDFC: "+b.ROI());
 
 	}
@@ -16,12 +16,12 @@ public class AbstractEx {
 
 
 // Abstract class
-abstract class Bank{
+abstract class Bank1{
 	abstract int ROI();
 }
 
 // Class extending abstract class
-class SC extends Bank{
+class SC1 extends Bank1{
 	// Abstract Method definition
 	int ROI() {
 		return 7;
@@ -29,7 +29,7 @@ class SC extends Bank{
 }
 
 // Class extending abstract class
-class HDFC extends Bank{
+class HDFC1 extends Bank1{
 	// Abstract Method definition
 	int ROI() {
 		return 5;
