@@ -1,11 +1,18 @@
 package com.neosoft.session;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Formatter;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
 
 public class Bank {
+	SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yy");
+	SimpleDateFormat tformatter = new SimpleDateFormat("HH:mm:ss");
+	
 	ArrayList<String> name = new ArrayList<String>();
 	ArrayList<String> address = new ArrayList<String>();
 	ArrayList<String> phone = new ArrayList<String>();
@@ -68,7 +75,7 @@ public class Bank {
 		System.out.println("Enter Initial deposit: ");
 		Double amt = sc.nextDouble();
 		amount.add(amt);
-		String DStat = "Initial Deposit - Rs. "+amt;
+		String DStat = "Initial Deposit - Rs. "+amt+" on "+formatter.format(new Date())+" at "+tformatter.format(new Date());
 		transaction.add(new ArrayList<String>());
 		transaction.get(uname.indexOf(u)).add(DStat);
 	}
@@ -76,7 +83,7 @@ public class Bank {
 	void Deposit(int i, double amt) {
 		String DStat = "Rs. "+amt+" Credited to your account. Balance: ";
 		amt += amount.get(i);
-		DStat += amt;
+		DStat += amt+" on "+formatter.format(new Date())+" at "+tformatter.format(new Date());
 		amount.set(i,amt);
 		transaction.get(i).add(DStat);
 //		System.out.println(transaction);
@@ -95,14 +102,13 @@ public class Bank {
 		if(uname.indexOf(payeeName) > 0) {
 			res = amount.get(i) - amt;
 			amount.set(i, res);
-			String Payer = "Transferred money Rs. "+amt+" to "+payeeName+". Balance: Rs. "+amount.get(i);
+			String Payer = "Transferred money Rs. "+amt+" to "+payeeName+". Balance: Rs. "+amount.get(i)+" on "+formatter.format(new Date())+" at "+tformatter.format(new Date());
 			transaction.get(i).add(Payer);
 			int j = uname.indexOf(payeeName);
 			res = amount.get(j)+amt;
 			amount.set(j, res);
-			String Payee = "Credited Money Rs. "+amt+" from "+uname.get(i)+". Balance: Rs. "+amount.get(j);
+			String Payee = "Credited Money Rs. "+amt+" from "+uname.get(i)+". Balance: Rs. "+amount.get(j)+" on "+formatter.format(new Date())+" at "+tformatter.format(new Date());
 			transaction.get(j).add(Payee);
-			System.out.println(transaction);
 		}
 		else {
 			System.out.println("Username doesn't exist.");
@@ -309,6 +315,7 @@ public class Bank {
 	public static void main(String[] args) {
 		Bank bankObj = new Bank();
 		int choice = 0;
+		
 		
 		while(choice != 4) {
 			System.out.println("-----------------------");
