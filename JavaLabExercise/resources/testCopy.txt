@@ -1,3 +1,4 @@
+Java is here.
 this is a test file.
 With many lines.
 Lets add extra lines.
