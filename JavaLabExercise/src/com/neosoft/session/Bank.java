@@ -1,10 +1,8 @@
 package com.neosoft.session;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Formatter;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -81,7 +79,7 @@ public class Bank {
 		transaction.get(uname.indexOf(u)).add(DStat);
 	}
 	
-	void Deposit(int i, double amt) {
+	void deposit(int i, double amt) {
 		String DStat = "Rs. "+amt+" Credited to your account. Balance: ";
 		amt += amount.get(i);
 		DStat += amt+" on "+formatter.format(new Date())+" at "+tformatter.format(new Date());
@@ -90,7 +88,7 @@ public class Bank {
 //		System.out.println(transaction);
 	}
 	
-	void Transfer(int i) {
+	void transfer(int i) {
 		System.out.println("Enter payee username: ");
 		String payeeName = sc.nextLine();
 		System.out.println("Enter amount: ");
@@ -116,13 +114,13 @@ public class Bank {
 		}
 	}
 	
-	void UserInfo(int i) {
+	void userInfo(int i) {
 		System.out.println("Accountholder Name: "+name.get(i));
 		System.out.println("Accountholder Address: "+address.get(i));
 		System.out.println("Accountholder contact: "+phone.get(i));
 	}
 	
-	void LoginOption(String u, String p) {
+	void loginOption(String u, String p) {
 		int choice = 0;
 		while(choice != 5) {
 			System.out.println("-------------------");
@@ -142,16 +140,16 @@ public class Bank {
 			case 1: 
 				System.out.println("Enter amount: ");
 				double amt = sc.nextDouble();
-				Deposit(uname.indexOf(u),amt);
+				deposit(uname.indexOf(u),amt);
 				break;
 			case 2:
-				Transfer(uname.indexOf(u));
+				transfer(uname.indexOf(u));
 				break;
 			case 3:
 				transactionData(uname.indexOf(u));
 				break;
 			case 4:
-				UserInfo(uname.indexOf(u));
+				userInfo(uname.indexOf(u));
 				break;
 			case 5:
 				return;
@@ -182,7 +180,7 @@ public class Bank {
 		for(int i = 0; i < uname.size(); i++) {
 			if((username.equals(uname.get(i))) && (password.equals(pass.get(i)))) {
 				System.out.println("Successfully logged in.");
-				LoginOption(username,password);
+				loginOption(username,password);
 				flag = 1;
 				break;
 			}
@@ -192,7 +190,7 @@ public class Bank {
 		}
 	}
 	
-	void UpdateAcc() {
+	void updateAcc() {
 		System.out.println("Enter username: ");
 		String u = sc.nextLine();
 		int i = uname.indexOf(u);
@@ -347,7 +345,7 @@ public class Bank {
 				bankObj.login();
 				break;
 			case 3:
-				bankObj.UpdateAcc();
+				bankObj.updateAcc();
 				break;
 			case 4:
 				break;
