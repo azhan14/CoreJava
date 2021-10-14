@@ -122,7 +122,7 @@ public class Bank {
 	
 	void loginOption(String u, String p) {
 		int choice = 0;
-		while(choice != 5) {
+		while(choice != 6) {
 			System.out.println("-------------------");
 			System.out.println("W  E  L  C  O  M  E");
 			System.out.println("-------------------");
@@ -131,7 +131,8 @@ public class Bank {
 			System.out.println("2. Transfer.");
 			System.out.println("3. Last 5 Transactions.");
 			System.out.println("4. User Information.");
-			System.out.println("5. Log out");
+			System.out.println("5. Show Balance.");;
+			System.out.println("6. Log out");
 			System.out.println("");
 			System.out.println("Enter your choice: ");
 			choice = sc.nextInt();
@@ -152,9 +153,16 @@ public class Bank {
 				userInfo(uname.indexOf(u));
 				break;
 			case 5:
+				showBalance(uname.indexOf(u));
+				break;
+			case 6:
 				return;
 			}
 		}
+	}
+	
+	void showBalance(int i) {
+		System.out.println("Your Account Balance is: "+amount.get(i));
 	}
 	
 	void transactionData(int i) {
