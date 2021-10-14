@@ -160,9 +160,17 @@ public class Bank {
 	}
 	
 	void transactionData(int i) {
-		for(int j = 0; j < transaction.get(i).size(); j++) {
-			System.out.println(transaction.get(i).get(j));
+		if(transaction.get(i).size() < 5) {
+			for(int j = 0; j < transaction.get(i).size(); j++) {
+				System.out.println(transaction.get(i).get(j));
+			}
 		}
+		else {
+			for(int j = transaction.get(i).size()-5; j < transaction.get(i).size(); j++) {
+				System.out.println(transaction.get(i).get(j));
+			}
+		}
+		
 	}
 	
 	void login() {
