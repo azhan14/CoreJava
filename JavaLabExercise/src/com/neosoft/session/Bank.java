@@ -20,6 +20,7 @@ public class Bank {
 	ArrayList<String> pass = new ArrayList<String>();
 	ArrayList<Double> amount = new ArrayList<Double>();
 	ArrayList<ArrayList<String>> transaction = new ArrayList<ArrayList<String>>();
+	
 	static Scanner sc = new Scanner(System.in);
 	void register() {
 		System.out.println("Enter name: ");
