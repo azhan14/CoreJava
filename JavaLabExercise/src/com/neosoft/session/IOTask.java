@@ -12,10 +12,12 @@ import java.util.regex.Pattern;
 public class IOTask {
 
 	public static void main(String[] args) throws IOException {
-		
-		File email = new File("resources/emails.txt");
-		BufferedWriter br1 = new BufferedWriter(new FileWriter(email,true));
 		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Email List File Name: ");
+		String fileName = sc.nextLine();
+		File email = new File("resources/"+fileName);
+		BufferedWriter br1 = new BufferedWriter(new FileWriter(email,true));
+		
 		String emailId;
 		System.out.println("Enter 5 valid emails: ");
 		for(int i =0;i<5;i++) {
@@ -30,8 +32,9 @@ public class IOTask {
 			}
 		}
 		br1.close();
-		
-		File domain = new File("resources/domains.txt");
+		System.out.println("Enter Domain List File Name: ");
+		String domainFileName = sc.nextLine();
+		File domain = new File("resources/"+domainFileName);
 		BufferedReader br2 = new BufferedReader(new FileReader(email));
 		BufferedWriter br3 = new BufferedWriter(new FileWriter(domain,true));
 		String line;

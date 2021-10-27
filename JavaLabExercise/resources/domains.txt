@@ -3,3 +3,13 @@ yahoo.com
 orkut.com
 bing.com
 hotmail.com
+gmail.com
+yahoo.com
+orkut.com
+bing.com
+hotmail.com
+gmail.com
+yahoo.in
+yahoo.com
+orkut.com
+fb.com
