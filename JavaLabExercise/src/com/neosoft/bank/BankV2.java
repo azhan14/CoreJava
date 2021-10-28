@@ -5,22 +5,15 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class BankV2 {
-	SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yy");
-	SimpleDateFormat tformatter = new SimpleDateFormat("HH:mm:ss");
 	static Scanner sc = new Scanner(System.in);
-	ObjectOutputStream oos = null;
 	ObjectInputStream ois = null;
 	List<RegisterV2> registered = new ArrayList<RegisterV2>();
-	List<TransactionV2> transactioned = new ArrayList<TransactionV2>();
 	String userFile = "BankFiles/users.db";
-	String transFile = "BankFiles/transaction.db";
 	
 	void showUserInfo(String uname){
 		try {
