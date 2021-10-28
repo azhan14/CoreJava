@@ -57,6 +57,7 @@ public class BankV2 {
 		int choice = 0;
 		RegisterUser regUserObj = new RegisterUser();
 		LoginUser logUserObj = new LoginUser();
+		UpdateUser updateObj = new UpdateUser();
 		
 		while(choice != 4) {
 			System.out.println("-----------------------");
@@ -78,7 +79,7 @@ public class BankV2 {
 				logUserObj.login();
 				break;
 			case 3:
-//				bankObj.updateAcc();
+				updateObj.updateAcc();
 				break;
 			case 4:
 				break;
