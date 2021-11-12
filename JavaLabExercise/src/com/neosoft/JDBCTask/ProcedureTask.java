@@ -10,7 +10,7 @@ import java.sql.Types;
 public class ProcedureTask {
 
 	public static void main(String[] args) {
-		final String DB_url = "jdbc:mysql://localhost:3306/mydb";
+		final String DB_url = "jdbc:mysql://localhost:3306/mydb3";
 		final String DB_user = "root";
 		final String DB_pass = "Zainpatel@14";
 		
@@ -35,6 +35,10 @@ public class ProcedureTask {
 			
 			st = conn.createStatement();
 			
+			System.out.println("----------------------");
+			System.out.println("Employee Level Procedure");
+			System.out.println("----------------------");
+			
 			// Calling Stored Procedure
 			String prepareCallQuery = "CALL mydb3.GetEmpLevel(?,?)";
 			cst = conn.prepareCall(prepareCallQuery);
@@ -43,8 +47,20 @@ public class ProcedureTask {
 			cst.registerOutParameter(2, Types.VARCHAR);
 			cst.execute();
 			System.out.println("LEVEL");
-			System.out.print(cst.getString(2));
+			System.out.println(cst.getString(2));
 			cst.close();
+			
+			System.out.println("----------------------");
+			System.out.println("Salary Increment Function");
+			System.out.println("----------------------");
+			
+			String selectQuery1 = "SELECT mydb3.salIncrement(2000,10) AS salLevel;";
+			rs = st.executeQuery(selectQuery1);
+			System.out.println("salLevel");
+			while(rs.next()) {
+				System.out.println(rs.getInt("salLevel"));
+			}
+			rs.close();
 			
 		} catch(Exception e) {
 			e.printStackTrace();
