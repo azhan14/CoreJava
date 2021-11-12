@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="registerservlet" method = "POST">
+		<table>
+			<tr>
+				<td><label>NAME:</label></td>
+				<td><input type="text" name="txtname"></td>
+			</tr>
+			<tr>
+				<td><label>Age:</label></td>
+				<td><input type="number" name="age"></td>
+			</tr>
+			<tr>
+				<td><label>Email: </label></td>
+				<td><input type="email" name="email"></td>
+			</tr>
+			<tr>
+				<td><label>Mobile: </label></td>
+				<td><input type="number" name="mobile"></td>
+			</tr>
+			<tr>
+				<td><label>Qualification:</label></td>
+				<td>
+					<select name="qualify">
+						<option value = "UG">UG</option>
+						<option value = "PG">PG</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label>Course: </label></td>
+				<td>
+					<select name="course">
+						<option value="JAVA">JAVA</option>
+						<option value="PYTHON">PYTHON</option>
+						<option value="C#">C#</option>
+						<option value="RUBY">RUBY</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td><input type="reset" value="Clear"></td>
+				<td><input type="submit" value="Login"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
