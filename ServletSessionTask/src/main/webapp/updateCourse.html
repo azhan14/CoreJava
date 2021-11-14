@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Update Course</title>
+</head>
+<body>
+	<form action="UpdateCourseServlet" method="POST">
+		<table>
+			<tr>
+				<td><label>Enter ID:</label></td>
+				<td><input type="number" name="stid"></td>
+			</tr>
+			<tr>
+				<td><label>Course: </label></td>
+				<td>
+					<select name="stcourse">
+						<option value="JAVA">JAVA</option>
+						<option value="PHP">PHP</option>
+						<option value="PYTHON">PYTHON</option>
+						<option value=".Net">.Net</option>
+						<option value="R">R</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Update"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
