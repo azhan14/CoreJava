@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="bootstrap.min.css">
+<style type="text/css">
+body{
+	background-color: #85FFBD;
+	background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+}
+</style>
+<title>CAR RENTAL SERVICE</title>
+</head>
+<body>
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">CRS</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+<div class="container">
+<div class="row">
+<div class="col-md-6 my-5" style="border: 2px solid black; border-radius: 20px; padding: 20px;">
+    	<h3>Admin Login</h3>
+        <form action="adminlogin" method="post">
+            <div class="form-group">
+                 <label for="aemail">Email</label>
+                 <input type="email" class="form-control" id="aemail" name="aemail" required/>
+            </div>
+            <div class="form-group">
+                 <label for="password">Password</label>
+                 <input type="password" class="form-control" id="apassword" name="apassword" required/>
+            </div>
+           	<button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+	</div>
+	<div class="col-md-6 my-5" style="border: 2px solid black; border-radius: 20px; padding: 20px;">
+    	<h3>Renter Login</h3>
+        <form action="renterlogin" method="post">
+            <div class="form-group">
+                 <label for="remail">Email</label>
+                 <input type="email" class="form-control" id="remail" name="remail" required/>
+            </div>
+            <div class="form-group">
+                 <label for="rpassword">Password</label>
+                 <input type="password" class="form-control" id="rpassword" name="rpassword" required/>
+            </div>
+           	<button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+	</div>
+	
+	<div class="col-md-6 my-5" style="border: 2px solid black; border-radius: 20px; padding: 20px;">
+    	<h3>Customer Login</h3>
+        <form action="customerlogin" method="post">
+            <div class="form-group">
+                 <label for="cemail">Email</label>
+                 <input type="email" class="form-control" id="cemail" name="cemail" required/>
+            </div>
+            <div class="form-group">
+                 <label for="cpassword">Password</label>
+                 <input type="password" class="form-control" id="cpassword" name="cpassword" required/>
+            </div>
+           	<button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+	</div>
+	
+	<div class="col-md-6" style="border: 2px solid black; border-radius: 20px; padding: 20px;">
+    	<h3>Customer Register</h3>
+        <form action="customerregister" method="post">
+            <div class="form-group">
+                 <label for="cname">Name</label>
+                 <input type="text" class="form-control" id="cname" name="cname" required/>
+            </div>
+            <div class="form-group">
+                 <label for="cremail">Email</label>
+                 <input type="email" class="form-control" id="cremail" name="cremail" required/>
+            </div>
+            <div class="form-group">
+                 <label for="crpassword">Password</label>
+                 <input type="password" class="form-control" id="crpassword" name="crpassword" required/>
+            </div>
+            <div class="form-group">
+                 <label for="ccontact">Contact</label>
+                 <input type="number" class="form-control" id="ccontact" name="ccontact" required/>
+            </div>
+           	<button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+	</div>
+</div>
+</div>
+
+	<script src="bootstrap.min.js"></script>
+</body>
+</html>
