@@ -29,6 +29,7 @@ public class ViewAllServlet extends HttpServlet{
 			e.printStackTrace();
 		}
 		out.print("</table>");
+		out.print("<a href = 'HomePage.html'>Home Page</a>");
 		out.close();
 	}
 }

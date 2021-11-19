@@ -27,10 +27,11 @@ public class UpdateCourseServlet extends HttpServlet{
 		int id = Integer.parseInt(req.getParameter("stid"));
 		String course =req.getParameter("stcourse");
 		try {
-			out.print(StudentController.updateCourseById(id,course) == 1 ? "<h1> Updated Student With ID: "+id : "<h2>Could not find Student with ID: "+id);
+			out.print(StudentController.updateCourseById(id,course) == 1 ? "<h1> Updated Student With ID: "+id+"</h1>" : "<h2>Could not find Student with ID: "+id+"</h2>");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		out.print("<a href = 'HomePage.html'>Home Page</a>");
 		out.close();
 	}
 }

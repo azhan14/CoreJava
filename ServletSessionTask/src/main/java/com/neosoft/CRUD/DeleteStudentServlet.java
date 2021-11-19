@@ -24,10 +24,11 @@ public class DeleteStudentServlet extends HttpServlet{
 		
 		int id = Integer.parseInt(req.getParameter("stid"));
 		try {
-			out.print(StudentController.deleteStudentById(id) == 1 ? "<h1> Deleted Student With ID: "+id : "<h2>Could not find Student with ID: "+id);
+			out.print(StudentController.deleteStudentById(id) == 1 ? "<h1> Deleted Student With ID: "+id+"</h1>" : "<h2>Could not find Student with ID: "+id+"</h2>");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		out.print("<a href = 'HomePage.html'>Home Page</a>");
 		out.close();
 	}
 }

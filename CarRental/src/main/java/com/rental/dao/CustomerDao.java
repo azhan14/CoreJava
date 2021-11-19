@@ -112,4 +112,48 @@ public class CustomerDao {
 		}
 		return status;
 	}
+	
+	public static CustomerBean getCustById(int id) {
+		CustomerBean bean = new CustomerBean();
+		try {
+			Connection con = DB.getCon();
+			String selectQuery = "SELECT * FROM CUST WHERE CUSTID = ?";
+			PreparedStatement pst = con.prepareStatement(selectQuery);
+			pst.setInt(1, id);
+			ResultSet rs = pst.executeQuery();
+			while(rs.next()) {
+				bean.setId(rs.getInt(1));
+				bean.setName(rs.getString(2));
+				bean.setEmail(rs.getString(3));
+				bean.setPassword(rs.getString(4));
+				bean.setContact(rs.getString(5));
+			}
+			rs.close();
+			pst.close();
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return bean;
+	}
+	
+	public static int update(CustomerBean bean) {
+		int status = 0;
+		try {
+			Connection con = DB.getCon();
+			String updateQuery = "UPDATE CUST SET CUSTNAME = ?, CUSTEMAIL = ?, CUSTPASS = ?, CUSTCONTACT = ? WHERE CUSTID = ?";
+			PreparedStatement pst = con.prepareStatement(updateQuery);
+			pst.setString(1,bean.getName());
+			pst.setString(2,bean.getEmail());
+			pst.setString(3,bean.getPassword());
+			pst.setString(4,bean.getContact());
+			pst.setInt(5,bean.getId());
+			status = pst.executeUpdate();
+			pst.close();
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return status;
+	}
 }

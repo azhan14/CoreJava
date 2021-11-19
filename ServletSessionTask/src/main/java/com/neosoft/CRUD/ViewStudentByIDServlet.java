@@ -39,6 +39,7 @@ public class ViewStudentByIDServlet extends HttpServlet{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		out.print("<a href = 'HomePage.html'>Home Page</a>");
 		out.close();
 		
 	}

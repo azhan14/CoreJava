@@ -34,6 +34,7 @@ public class AddStudentServlet extends HttpServlet{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		out.print("<a href = 'HomePage.html'>Home Page</a>");
 		out.close();
 	}
 }
