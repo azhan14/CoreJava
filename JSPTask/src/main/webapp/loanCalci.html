@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Loan Calculator Form</title>
+</head>
+<body>
+<form action="emicalculate.jsp" method="POST">
+		<table>
+			<tr>
+				<td><label>Enter Loan Amount: </label></td>
+				<td><input type="number" name="amount"></td>
+			</tr>
+			<tr>
+				<td><label>Enter Period in years: </label></td>
+				<td><input list="range" name="year">
+				<datalist id="range">
+					<option value="5" label="5">
+					<option value="6" label="6">
+					<option value="7" label="7">
+					<option value="8" label="8">
+					<option value="9" label="9">
+					<option value="10" label="10">
+					<option value="11" label="11">
+					<option value="12" label="12">
+					<option value="13" label="13">
+					<option value="14" label="14">
+					<option value="15" label="15">
+					<option value="16" label="16">
+					<option value="17" label="17">
+					<option value="18" label="18">
+					<option value="19" label="19">
+					<option value="20" label="20">
+				</datalist>
+				</td>
+			</tr>
+			<tr>
+				<td><label>Enter Rate of Interest: </label></td>
+				<td><input type="number" name="roi"></td>
+			</tr>
+			<tr>
+				<td><input type="reset" value="reset"></td>
+				<td><input type="submit" value="calculate"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
