@@ -43,7 +43,7 @@ public class ViewCar extends HttpServlet{
 		List<CarBean> beans = CarDao.getAll();
 		
 		out.println("<table class='table table-bordered table-striped'>");
-		out.print("<thead class='thead-dark'><tr><th scope='col'>NO.</th><th scope='col'>NAME</th><th scope='col'>MANUFACTURER</th><th scope'co'>YEAR</th><th scope='col'>AVAILABLE</th><th scope='col'>EDIT</th><th scope='col'>DELETE</th></tr></thead>");
+		out.print("<thead class='thead-dark'><tr><th scope='col'>NO.</th><th scope='col'>NAME</th><th scope='col'>MANUFACTURER</th><th scope='col'>YEAR</th><th scope='col'>AVAILABLE</th><th scope='col'>EDIT</th><th scope='col'>DELETE</th></tr></thead>");
 		out.print("<tbody>");
 		
 		for(CarBean bean: beans) {

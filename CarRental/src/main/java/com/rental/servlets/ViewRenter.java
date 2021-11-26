@@ -43,7 +43,7 @@ public class ViewRenter extends HttpServlet{
 		List<RenterBeans> beans = RenterDao.getAll();
 		
 		out.println("<table class='table table-bordered table-striped'>");
-		out.print("<thead class='thead-dark'><tr><th scope='col'>ID</th><th scope='col'>NAME</th><th scope='col'>EMAIL</th><th scope'co'>PASSWORD</th><th scope='col'>CONTACT</th><th scope='col'>EDIT</th><th scope='col'>DELETE</th></tr></thead>");
+		out.print("<thead class='thead-dark'><tr><th scope='col'>ID</th><th scope='col'>NAME</th><th scope='col'>EMAIL</th><th scope='col'>PASSWORD</th><th scope='col'>CONTACT</th><th scope='col'>EDIT</th><th scope='col'>DELETE</th></tr></thead>");
 		out.print("<tbody>");
 		
 		for(RenterBeans bean: beans) {
@@ -51,7 +51,7 @@ public class ViewRenter extends HttpServlet{
 		}
 		
 		out.print("</tbody>");
-		out.print("</table");
+		out.print("</table>");
 		
 		out.println("</div>");
 		
