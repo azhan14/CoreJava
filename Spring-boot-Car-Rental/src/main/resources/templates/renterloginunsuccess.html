@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<style type="text/css">
+body{
+	background-color: #85FFBD;
+	background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+}
+</style>
+<title>RENTER LOGIN</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand navbar-dark bg-dark">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" th:href="@{/}">CRS</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	    	<div class="navbar-nav">
+		      <a class="nav-item nav-link" th:href="@{/renterregister}">Renter</a>
+		      <a class="nav-item nav-link" th:href="@{/customerregister}">Customer</a>
+	    	</div>
+	  	</div>
+	  </div>
+	</nav>
+	
+	<div class="container">
+	<div class="row">
+		<div class="col-md-6 my-5" style="border: 2px solid black; border-radius: 20px; padding: 20px;">
+	    	<h4>Email or Password Wrong. Please try again.</h4>
+	    	<h3>Renter Login</h3>
+	        <form th:action="@{/renterloginauth}" method="post" th:object="${renter}">
+	            <div class="form-group">
+	                 <label for="aemail">Email</label>
+	                 <input type="email" class="form-control" th:field="*{email}" id="aemail" name="aemail" required/>
+	            </div>
+	            <div class="form-group">
+	                 <label for="apassword">Password</label>
+	                 <input type="password" class="form-control" th:field="*{password}" id="apassword" name="apassword" required/>
+	            </div>
+	           	<button type="submit" class="btn btn-dark">Submit</button>
+	        </form>
+		</div>
+	</div>
+	</div>
+</body>
+</html>

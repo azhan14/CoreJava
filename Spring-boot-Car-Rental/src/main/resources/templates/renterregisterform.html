@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<style type="text/css">
+body{
+	background-color: #85FFBD;
+	background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+}
+</style>
+<title>RENTER</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand navbar-dark bg-dark">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" th:href="@{/}">CRS</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	    	<div class="navbar-nav">
+		      <a class="nav-item nav-link" th:href="@{/renterregister}">Renter</a>
+		      <a class="nav-item nav-link" th:href="@{/customerregister}">Customer</a>
+	    	</div>
+	  	</div>
+	  </div>
+	</nav>
+	
+	<div class="container">
+	<div class="row">
+		<div class="col-md-6" style="border: 2px solid black; border-radius: 20px; padding: 20px;">
+	    	<h3>Renter Register</h3>
+	        <form th:action="@{/renteradd}" method="post" th:object="${renter}">
+	            <div class="form-group">
+	                 <label for="rname">Name</label>
+	                 <input type="text" class="form-control" th:field="*{name}" id="rname" name="rname" required/>
+	            </div>
+	            <div class="form-group">
+	                 <label for="remail">Email</label>
+	                 <input type="email" class="form-control" th:field="*{email}" id="remail" name="remail" required/>
+	            </div>
+	            <div class="form-group">
+	                 <label for="rpassword">Password</label>
+	                 <input type="password" class="form-control" th:field="*{password}" id="rpassword" name="rpassword" required/>
+	            </div>
+	            <div class="form-group">
+	                 <label for="rcontact">Contact</label>
+	                 <input type="number" class="form-control" th:field="*{contact}" id="rcontact" name="rcontact" required/>
+	            </div>
+	           	<button type="submit" class="btn btn-dark">Submit</button>
+	        </form>
+	        
+	        <a th:href="@{/renterloginform}">Already Register? Login.</a>
+		</div>
+	</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<style type="text/css">
+body{
+	background-color: #85FFBD;
+	background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+}
+</style>
+<title>Profile</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand navbar-dark bg-dark">
+    	<a class="navbar-brand" th:href="@{/customerhome}">CRS</a>
+    	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      		<span class="navbar-toggler-icon"></span>
+    	</button>
+  		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		    <div class="navbar-nav">
+		      <a class="nav-item nav-link" th:href="@{/rentcar}">Rent Car</a>
+		      <a class="nav-item nav-link" th:href="@{/rentedcar}">Rented Car</a>
+		      <a class="nav-item nav-link" th:href="@{/showprofile}">Show Profile</a>
+		      <a class="nav-item nav-link" th:href="@{/customerlogout}">Logout</a>
+    		</div>
+  		</div>
+	</nav>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6" style="border: 2px solid black; border-radius: 20px; padding: 20px;">
+				<h3>Profile</h3>
+				<table class="table" th:object="${customer}">
+					<tr>
+						<th class = "table-dark">ID</th>
+						<td th:text="${customer.id}"></td>
+					</tr>
+					
+					<tr>
+						<th class = "table-dark">Name</th>
+						<td th:text="${customer.name}"></td>
+					</tr>
+					
+					<tr>
+						<th class = "table-dark">Email</th>
+						<td th:text="${customer.email}"></td>
+					</tr>
+					
+					<tr>
+						<th class = "table-dark">Password</th>
+						<td th:text="${customer.password}"></td>
+					</tr>
+					
+					<tr>
+						<th class = "table-dark">Contact</th>
+						<td th:text="${customer.contact}"></td>
+					</tr>
+					
+				</table>
+				<form th:action="@{/editcustomerform}" method="GET">
+					<button type="submit" class="btn btn-dark">Update</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

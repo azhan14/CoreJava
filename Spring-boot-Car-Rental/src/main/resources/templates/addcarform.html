@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<style type="text/css">
+body{
+	background-color: #85FFBD;
+	background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+}
+</style>
+<title>ADD CAR</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand navbar-dark bg-dark">
+	    <a class="navbar-brand" href="@{/renterhome}">CRS</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	  	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	    	<div class="navbar-nav">
+		      <a class="nav-item nav-link" th:href="@{/addcarform}">Add Car</a>
+		      <a class="nav-item nav-link" th:href="@{/viewcar}">View Car</a>
+		      <a class="nav-item nav-link" th:href="@{/renterlogout}">Logout</a>
+    		</div>
+  		</div>
+	</nav>
+	
+	<div class="row">
+	<div class="col-md-6" style="border: 2px solid black; border-radius: 20px; padding: 20px;">
+    	<h3>Add Car</h3>
+        <form th:action="@{/addcar}" method="post" th:object="${car}">
+            <div class="form-group">
+                 <label for="carno">Number</label>
+                 <input type="number" class="form-control" th:field="*{number}" id="carnno" name="carno" required/>
+            </div>
+            <div class="form-group">
+                 <label for="carname">Name</label>
+                 <input type="text" class="form-control" th:field="*{name}" id="carname" name="carname" required/>
+            </div>
+            <div class="form-group">
+                 <label for="carmf">Manufacturer</label>
+                 <input type="text" class="form-control" th:field="*{mf}" id="carmf" name="carmf" required/>
+            </div>
+            <div class="form-group">
+                 <label for="caryear">Year of Buy</label>
+                 <input type="number" class="form-control" th:field="*{year}" id="caryear" name="caryear" required/>
+            </div>
+            <div class="form-group">
+                 <label for="carprice">Price</label>
+                 <input type="number" class="form-control" th:field="*{price}" id="carprice" name="carprice" required/>
+            </div>
+           	<button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+	</div>
+	</div>
+</body>
+</html>

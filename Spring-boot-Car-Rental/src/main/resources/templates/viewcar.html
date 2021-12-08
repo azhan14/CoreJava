@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<style type="text/css">
+body{
+	background-color: #85FFBD;
+	background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+}
+</style>
+<title>ADD CAR</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand navbar-dark bg-dark">
+	    <a class="navbar-brand" href="@{/renterhome}">CRS</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	  	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	    	<div class="navbar-nav">
+		      <a class="nav-item nav-link" th:href="@{/addcarform}">Add Car</a>
+		      <a class="nav-item nav-link" th:href="@{/viewcar}">View Car</a>
+		      <a class="nav-item nav-link" th:href="@{/renterlogout}">Logout</a>
+    		</div>
+  		</div>
+	</nav>
+	
+	<div class="container">
+		<table class="table table-bordered table-striped">
+			<thead class='thead-dark'>
+				<tr>
+					<th scope='col'>NO.</th>
+					<th scope='col'>NAME</th>
+					<th scope='col'>MANUFACTURER</th>
+					<th scope='col'>YEAR</th>
+					<th scope='col'>PRICE</th>
+					<th scope='col'>AVAILABLE</th>
+					<th scope='col'>EDIT</th>
+					<th scope='col'>DELETE</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="car: ${cars}">
+					<td th:text="${car.number}"></td>
+					<td th:text="${car.name}"></td>
+					<td th:text="${car.mf}"></td>
+					<td th:text="${car.year}"></td>
+					<td th:text="${car.price}"></td>
+					<td th:text="${car.status}"></td>
+					<td><a th:href = "@{/car/edit/{id}(id=${car.number})}" class = "btn btn-primary">Update</a></td>
+					<td><a th:href = "@{/car/delete/{id}(id=${car.number})}" class = "btn btn-primary">Delete</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

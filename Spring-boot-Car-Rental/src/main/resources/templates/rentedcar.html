@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<style type="text/css">
+body{
+	background-color: #85FFBD;
+	background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+}
+</style>
+<title>Rented Car</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand navbar-dark bg-dark">
+    	<a class="navbar-brand" th:href="@{/customerhome}">CRS</a>
+    	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      		<span class="navbar-toggler-icon"></span>
+    	</button>
+  		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		    <div class="navbar-nav">
+		      <a class="nav-item nav-link" th:href="@{/rentcar}">Rent Car</a>
+		      <a class="nav-item nav-link" th:href="@{/rentedcar}">Rented Car</a>
+		      <a class="nav-item nav-link" th:href="@{/showprofile}">Show Profile</a>
+		      <a class="nav-item nav-link" th:href="@{/customerlogout}">Logout</a>
+    		</div>
+  		</div>
+	</nav>
+	
+	<div class="container">
+			<table class="table table-bordered table-striped">
+				<thead class='thead-dark'>
+					<tr>
+						<th scope='col'>NO.</th>
+						<th scope='col'>ID</th>
+						<th scope='col'>NAME</th>
+						<th scope='col'>PRICE</th>
+						<th scope='col'>RETURN STATUS</th>
+						<th scope='col'>RETURN</th>
+					</tr>
+				</thead>
+			<tbody>
+				<tr th:each="rentedcar: ${rentedcars}">
+					<td th:text="${rentedcar.number}"></td>
+					<td th:text="${rentedcar.id}"></td>
+					<td th:text="${rentedcar.name}"></td>
+					<td th:text="${rentedcar.price}"></td>
+					<td th:text="${rentedcar.returnstatus}"></td>
+					<td><a th:href = "@{/car/return/{id}(id=${rentedcar.number})}" class = "btn btn-primary">Return</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
