@@ -52,4 +52,15 @@ public class UserService {
 		return users.stream().sorted(byJoinDateComparator).collect(Collectors.toList());
 	}
 	
+	public void softDelete(Long id) {
+		if(userRepository.findById(id).isPresent()) {
+			userRepository.softDelete(id);
+		}
+	}
+	
+	public void delete(Long id) {
+		if(userRepository.findById(id).isPresent()) {
+			userRepository.deleteById(id);
+		}
+	}
 }	

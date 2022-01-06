@@ -3,6 +3,7 @@ package com.neosoft.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -59,5 +60,15 @@ public class UserController {
 	public List<User> getUserSortByJoinDate(){
 		List<User> users = userService.getAllUser();
 		return userService.getSortedUserByJoinDate(users);
+	}
+	
+	@PutMapping("/user/softdelete/{id}")
+	public void softDeleteUser(@PathVariable Long id) {
+		userService.softDelete(id);
+	}
+	
+	@DeleteMapping("/user/delete/{id}")
+	public void delete(@PathVariable Long id) {
+		userService.delete(id);
 	}
 }
