@@ -103,7 +103,34 @@ public class UnitTest {
 	}
 	
 	@Test
-	public void getSortedUserByDob() throws Exception{
+	public void getSortUserByDob() throws Exception{
+		List<User> sortedByDob = new ArrayList<User>(Arrays.asList(mockUser3,mockUser2,mockUser1));
+		List<User> users = new ArrayList<User>(Arrays.asList(mockUser1,mockUser2,mockUser3));
 		
+		Mockito.when(userService.getAllUser()).thenReturn(users);
+		Mockito.when(userService.getSortedUserByDob(users)).thenReturn(sortedByDob);
+		
+		mockMvc.perform(MockMvcRequestBuilders
+				.get("/users/sortbydob")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].name", is("Harvey")));
 	}
+	
+	@Test
+	public void getSortUserByJoinDate() throws Exception{
+		List<User> sortedByJoinDate = new ArrayList<User>(Arrays.asList(mockUser3,mockUser1,mockUser2));
+		List<User> users = new ArrayList<User>(Arrays.asList(mockUser1,mockUser2,mockUser3));
+		
+		Mockito.when(userService.getAllUser()).thenReturn(users);
+		Mockito.when(userService.getSortedUserByJoinDate(users)).thenReturn(sortedByJoinDate);
+		
+		mockMvc.perform(MockMvcRequestBuilders
+				.get("/users/sortbyjoindate")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$[1].name", is("Rachel")));
+	}
+	
+	
 }
