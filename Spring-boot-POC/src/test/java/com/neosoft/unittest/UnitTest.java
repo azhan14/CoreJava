@@ -53,6 +53,57 @@ public class UnitTest {
 				.get("/users")
 				.contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
-				.andExpect(jsonPath("$", hasSize(3)));
+				.andExpect(jsonPath("$", hasSize(3)))
+				.andExpect(jsonPath("$[2].name", is("Harvey")));	
+		}
+	
+	@Test
+	public void getUserByName() throws Exception{
+		User mockUserWithSameName = new User(1L, "Rachel", "Zane", "9898888888", Gender.FEMALE ,new Date(2000-5-18), new Date(2021-4-19), "Ghatkopar", "Mumbai", "Maharashtra", "India", "400086");
+		List<User> mockUserList = new ArrayList<User>(Arrays.asList(mockUser1,mockUserWithSameName));
+		
+		Mockito.when(userService.findByName(mockUser1.getName())).thenReturn(mockUserList);
+		
+		mockMvc.perform(MockMvcRequestBuilders
+				.get("/user/name/Rachel")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$", hasSize(2)))
+				.andExpect(jsonPath("$[0].name", is("Rachel")));
+	}
+	
+	@Test
+	public void getUserBySurame() throws Exception{
+		User mockUserWithSameName = new User(1L, "Rachel", "Zane", "9898888888", Gender.FEMALE ,new Date(2000-5-18), new Date(2021-4-19), "Ghatkopar", "Mumbai", "Maharashtra", "India", "400086");
+		List<User> mockUserList = new ArrayList<User>(Arrays.asList(mockUser1,mockUserWithSameName));
+		
+		Mockito.when(userService.findBySurname(mockUser1.getSurname())).thenReturn(mockUserList);
+		
+		mockMvc.perform(MockMvcRequestBuilders
+				.get("/user/surname/Zane")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$", hasSize(2)))
+				.andExpect(jsonPath("$[0].surname", is("Zane")));
+	}
+	
+	@Test
+	public void getUserByPincode() throws Exception{
+		User mockUserWithSameName = new User(1L, "Rachel", "Zane", "9898888888", Gender.FEMALE ,new Date(2000-5-18), new Date(2021-4-19), "Ghatkopar", "Mumbai", "Maharashtra", "India", "400086");
+		List<User> mockUserList = new ArrayList<User>(Arrays.asList(mockUser1,mockUserWithSameName));
+		
+		Mockito.when(userService.findByPincode(mockUser1.getPincode())).thenReturn(mockUserList);
+		
+		mockMvc.perform(MockMvcRequestBuilders
+				.get("/user/pincode/400086")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$", hasSize(2)))
+				.andExpect(jsonPath("$[0].pincode", is("400086")));
+	}
+	
+	@Test
+	public void getSortedUserByDob() throws Exception{
+		
 	}
 }
