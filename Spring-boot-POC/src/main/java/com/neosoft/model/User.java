@@ -12,11 +12,12 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "user")
 public class User {
 	
 	@Id
-	@NonNull
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
@@ -74,5 +75,6 @@ public class User {
 	@Column(name = "pincode")
 	private String pincode;
 	
+	@Builder.Default
 	private int deleted = 0;
 }

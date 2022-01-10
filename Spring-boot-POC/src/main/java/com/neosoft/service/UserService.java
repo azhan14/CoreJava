@@ -2,6 +2,7 @@ package com.neosoft.service;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,18 +17,20 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	public void addUser(User user) {
-		userRepository.save(user);
+	public User addUser(User user) {
+		return userRepository.save(user);
 	}
 	
 	public List<User> getAllUser(){
 		return userRepository.getAllUser();
 	}
 	
-	public void updateUser(User user, Long id) {
-		if(userRepository.findById(id).isPresent()) {
-			userRepository.save(user);
-		}
+	public User updateUser(User user) {
+		return userRepository.save(user);
+	}
+	
+	public Optional<User> findById(Long id) {
+		return userRepository.findById(id);
 	}
 	
 	public List<User> findByName(String name) {
@@ -52,15 +55,4 @@ public class UserService {
 		return users.stream().sorted(byJoinDateComparator).collect(Collectors.toList());
 	}
 	
-	public void softDelete(Long id) {
-		if(userRepository.findById(id).isPresent()) {
-			userRepository.softDelete(id);
-		}
-	}
-	
-	public void delete(Long id) {
-		if(userRepository.findById(id).isPresent()) {
-			userRepository.deleteById(id);
-		}
-	}
 }	
