@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +17,7 @@ import com.neosoft.exception.InvalidRequestException;
 import com.neosoft.model.User;
 import com.neosoft.repository.UserRepository;
 import com.neosoft.service.UserService;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class UserController {
 	
@@ -36,7 +37,7 @@ public class UserController {
 		return userService.getAllUser();
 	}
 	
-	@PutMapping("/user/{id}")
+	@PutMapping("/users/{id}")
 	public User updateUser(@RequestBody User user, @PathVariable Long id) {
 		if(user == null || user.getId() == null) {
 			throw new InvalidRequestException("User or Id must not be null!");
@@ -61,6 +62,11 @@ public class UserController {
 		existingUser.setPincode(user.getPincode());
 		
 		return userService.updateUser(existingUser);
+	}
+	
+	@GetMapping("/users/{id}")
+	public Optional<User> getUserById(@PathVariable Long id) {
+		return userService.findById(id);
 	}
 	
 	@GetMapping("/user/name/{name}")
@@ -99,7 +105,7 @@ public class UserController {
 		userRepository.softDelete(id);
 	}
 	
-	@DeleteMapping("/user/delete/{id}")
+	@DeleteMapping("/users/delete/{id}")
 	public void delete(@PathVariable Long id) {
 		if(!userService.findById(id).isPresent()) {
 			throw new InvalidRequestException("User with ID " + 
