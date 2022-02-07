@@ -69,17 +69,17 @@ public class UserController {
 		return userService.findById(id);
 	}
 	
-	@GetMapping("/user/name/{name}")
+	@GetMapping("/users/name/{name}")
 	public List<User> getUserByName(@PathVariable String name) {
 		return userService.findByName(name);
 	}
 	
-	@GetMapping("/user/surname/{surname}")
+	@GetMapping("/users/surname/{surname}")
 	public List<User> getUserBySurname(@PathVariable String surname) {
 		return userService.findBySurname(surname);
 	}
 	
-	@GetMapping("/user/pincode/{pincode}")
+	@GetMapping("/users/pincode/{pincode}")
 	public List<User> getUserByPincode(@PathVariable String pincode) {
 		return userService.findByPincode(pincode);
 	}
