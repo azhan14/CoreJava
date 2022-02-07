@@ -16,10 +16,13 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	@Query("SELECT u FROM User u WHERE u.deleted = 0")
 	List<User> getAllUser();
 	
+	@Query("SELECT u FROM User u WHERE u.deleted = 0 AND u.name = ?1")
 	List<User> findByName(String name);
 	
+	@Query("SELECT u FROM User u WHERE u.deleted = 0 AND u.surname = ?1")
 	List<User> findBySurname(String surname);
 	
+	@Query("SELECT u FROM User u WHERE u.deleted = 0 AND u.pincode = ?1")
 	List<User> findByPincode(String pincode);
 	
 	@Transactional

@@ -34,11 +34,11 @@ public class UserService {
 	}
 	
 	public List<User> findByName(String name) {
-		return userRepository.findByName(name);
+		return userRepository.findByName(name.toLowerCase());
 	}
 	
 	public List<User> findBySurname(String surname) {
-		return userRepository.findBySurname(surname);
+		return userRepository.findBySurname(surname.toLowerCase());
 	}
 	
 	public List<User> findByPincode(String pincode) {
