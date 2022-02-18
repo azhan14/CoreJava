@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.neosoft.exception.ResourceNotFoundException;
 import com.neosoft.model.Reservation;
 import com.neosoft.service.ReservationService;
 import com.neosoft.service.SequenceGeneratorService;
@@ -42,7 +43,9 @@ public class ReservationThymeleafController {
     }
 	
 	@GetMapping("/delete-reservation/{id}")
-    public String removeReservation(@PathVariable("id") Long id, Model model) {
+    public String removeReservation(@PathVariable("id") Long id, Model model) throws ResourceNotFoundException{
+		reservationService.findReservationById(id)
+		.orElseThrow(() -> new ResourceNotFoundException("Reservation with ID : "+id+" Not Found"));
 		log.info("GET : /delete-reservation/{"+id+"} --> Called");
         reservationService.deleteReservationById(id);
         log.info("DELETED : Reservation with ID : "+id+"");
