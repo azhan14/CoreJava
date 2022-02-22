@@ -54,10 +54,11 @@ public class ReservationThymeleafController {
     }
 
     @GetMapping(value = {"/edit-add-reservation/{id}", "/edit-add-reservation"})
-    public String editReservation(@PathVariable("id") Optional<Long> id, Model model) {
+    public String editReservation(@PathVariable("id") Optional<Long> id, Model model) throws ResourceNotFoundException {
     	log.info("GET : /edit-add-reservation/{"+id+"} --> Called");
+    	
         Reservation reservation = id.isPresent() ?
-                reservationService.findReservationById(id.get()).get() : new Reservation();
+                reservationService.findReservationById(id.get()).orElseThrow(() -> new ResourceNotFoundException("Reservation with ID : "+id+" Not Found")) : new Reservation();
         model.addAttribute("reservation", reservation);
         return "add-edit";
     }

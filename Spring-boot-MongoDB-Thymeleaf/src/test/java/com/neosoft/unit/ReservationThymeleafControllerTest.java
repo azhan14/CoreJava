@@ -99,4 +99,14 @@ public class ReservationThymeleafControllerTest {
 		assertEquals("Reservation with ID : 4 Not Found", result.getResolvedException().getMessage()));
 		
 	}
+	
+	@Test
+	public void editReservationById_NotFound() throws Exception{
+		mockMvc.perform(get("/edit-add-reservation/4"))
+		.andExpect(status().isNotFound())
+		.andExpect(result -> 
+		assertTrue(result.getResolvedException() instanceof ResourceNotFoundException))
+		.andExpect(result -> 
+		assertEquals("Reservation with ID : 4 Not Found", result.getResolvedException().getMessage()));
+	}
 }
